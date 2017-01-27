@@ -5,25 +5,33 @@ set(distribution_DIR ${CMAKE_SOURCE_DIR}/../distribution)
 
 add_library(lib-curl STATIC IMPORTED)
 
-add_library(ffmpeg SHARED IMPORTED)
+
 
 set_target_properties(lib-curl PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/curl/lib/${ANDROID_ABI}/libcurl.a)
 
-set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavcodec.a)
+add_library(ffmpeg-codec STATIC IMPORTED)
+set_target_properties(ffmpeg-codec PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavcodec.a)
 
-set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavdevice.a)
+add_library(ffmpeg-device STATIC IMPORTED)
+set_target_properties(ffmpeg-device PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavdevice.a)
 
-set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavfilter.a)
+add_library(ffmpeg-filter STATIC IMPORTED)
+set_target_properties(ffmpeg-filter PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavfilter.a)
 
-set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavformat.a)
+add_library(ffmpeg-format STATIC IMPORTED)
+set_target_properties(ffmpeg-format PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavformat.a)
 
-set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavutil.a)
+add_library(ffmpeg-util STATIC IMPORTED)
+set_target_properties(ffmpeg-util PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavutil.a)
 
-set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libpostproc.a)
+add_library(ffmpeg-postproc STATIC IMPORTED)
+set_target_properties(ffmpeg-postproc PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libpostproc.a)
 
-set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libswresample.a)
+add_library(ffmpeg-sample STATIC IMPORTED)
+set_target_properties(ffmpeg-sample PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libswresample.a)
 
-set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libswscale.a)
+add_library(ffmpeg-scale STATIC IMPORTED)
+set_target_properties(ffmpeg-scale PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libswscale.a)
 
 
 
@@ -84,7 +92,14 @@ target_link_libraries( # Specifies the target library.
 
 target_link_libraries( # Specifies the target library.
                        lecteur
-                       ffmpeg
+                       ffmpeg-codec
+                       ffmpeg-device
+                       ffmpeg-filter
+                       ffmpeg-format
+                       ffmpeg-util
+                       ffmpeg-postproc
+                       ffmpeg-sample
+                       ffmpeg-scale
                        z
                        ${log-lib}
                        )

@@ -12,7 +12,7 @@ extern "C"
 #include <libavformat/avformat.h>
 
 JNIEXPORT jstring JNICALL
-Java_luoweiguang_github_io_video_MainActivity_getString(JNIEnv *env, jobject instance) {
+Java_com_example_local_app_1android_MainActivity_getString(JNIEnv *env, jobject instance) {
 
     char info[10000] = { 0 };
 
