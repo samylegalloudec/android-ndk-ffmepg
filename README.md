@@ -35,3 +35,8 @@ line 5 : pushd libpng-1.6.28
 then ./init_update_libs.sh
 
 and ./android_build.sh (takes almost 30-40 min)
+
+
+
+Then go in ffmpeg-android/build and copy the folders armeabi-v7a/ and x86/ into
+App_Android/distribution/ffmpeg/
