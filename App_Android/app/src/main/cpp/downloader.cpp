@@ -50,7 +50,7 @@ extern "C"
 JNIEXPORT jstring JNICALL Java_com_example_local_app_1android_MainActivity_Download(JNIEnv *env, jobject) {
     cout << "test" << endl;
     downloader downloaderz;
-    std::string content = downloaderz.download("http://172.31.5.105:8001/test");
+    std::string content = downloaderz.download("http://172.31.5.105:8001/get");
     std:: string test = "Début ---->" + content + "<---- Fin";
     return env->NewStringUTF(test.c_str());
 }
@@ -71,5 +71,3 @@ Java_com_example_local_app_1android_MainActivity_stringFromJNI3(
     std::string hello = "REFRESH";
     return env->NewStringUTF(hello.c_str());
 }
-
-

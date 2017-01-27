@@ -1,9 +1,12 @@
 package com.example.local.app_android;
 
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
         System.loadLibrary("downloader");
         System.loadLibrary("getrequest");
+        //System.loadLibrary("lecteur");
     }
 
     @Override
@@ -24,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(stringFromJNI2());
 
         TextView tv_ip = (TextView) findViewById(R.id.ip_text);
-        tv_ip.setText(Download());
+        tv_ip.setText(getString());
 
         Button button = (Button) findViewById(R.id.bouton);
         button.setText(stringFromJNI3());
+
     }
 
     /**
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public native String Download();
     public native String stringFromJNI2();
     public native String stringFromJNI3();
+    public native String getString();
 
     public void refresh(){
 

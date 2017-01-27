@@ -5,19 +5,17 @@
 #include "lecteur.h"
 #include <jni.h>
 #include <string>
+using namespace std;
+
+
 
 extern "C"
-{
 #include <libavcodec/avcodec.h>
 #include <libavformat/avformat.h>
 
 JNIEXPORT jstring JNICALL
-Java_com_example_local_app_1android_MainActivity_getString(JNIEnv *env, jobject instance) {
+Java_com_example_local_app_1android_MainActivity_getString(JNIEnv *env, jobject) {
 
-    char info[10000] = { 0 };
-
-    sprintf(info, "%s\n", avcodec_configuration());
-    return env->NewStringUTF(info);
-}
-
+    std::string info = "Hello !";
+    return env->NewStringUTF(info.c_str());
 }

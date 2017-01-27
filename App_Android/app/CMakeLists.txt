@@ -43,7 +43,7 @@ add_library( # Sets the name of the library.
              downloader
              SHARED
              src/main/cpp/downloader.cpp
-              #src/main/cpp/downloader.h
+             src/main/cpp/downloader.h
               )
 
 
@@ -51,14 +51,14 @@ add_library( # Sets the name of the library.
              getrequest
              SHARED
              src/main/cpp/getrequest.cpp
-              #src/main/cpp/getrequest.h
+             src/main/cpp/getrequest.h
               )
 
 add_library( # Sets the name of the library.
              lecteur
-             SHARED
+             STATIC
              src/main/cpp/lecteur.cpp
-              #src/main/cpp/lecteur.h
+             src/main/cpp/lecteur.h
               )
 
 target_include_directories(downloader PRIVATE
@@ -68,7 +68,7 @@ target_include_directories(getrequest PRIVATE
                            ${distribution_DIR}/curl/include)
 
 target_include_directories(lecteur PRIVATE
-                           ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/include)
+                          ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/include)
 
 
 find_library( # Sets the name of the path variable.
