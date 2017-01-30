@@ -8,6 +8,10 @@
 
 class lecteur {
 public:
+    lecteur();
+    ~lecteur();
+
+    void test();
 
 private:
 

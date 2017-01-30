@@ -56,7 +56,7 @@ add_library( # Sets the name of the library.
 
 add_library( # Sets the name of the library.
              lecteur
-             STATIC
+             SHARED
              src/main/cpp/lecteur.cpp
              src/main/cpp/lecteur.h
               )
