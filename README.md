@@ -1,3 +1,26 @@
+Pour compiler :
+
+Executer le projet avec Android Studio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#############################################################################
 Here to try to implement ffmpeg.
 
 How to compilate : 
