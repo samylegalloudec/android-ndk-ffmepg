@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 3.4.1)
 
+
+
 set(distribution_DIR ${CMAKE_SOURCE_DIR}/../distribution)
 
 
 add_library(lib-curl STATIC IMPORTED)
-
-
-
 set_target_properties(lib-curl PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/curl/lib/${ANDROID_ABI}/libcurl.a)
 
 add_library(ffmpeg-codec STATIC IMPORTED)
@@ -35,41 +34,21 @@ set_target_properties(ffmpeg-scale PROPERTIES IMPORTED_LOCATION ${distribution_D
 
 
 
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
 
 add_library( # Sets the name of the library.
-             downloader
+             gestionnaire
              SHARED
              src/main/cpp/downloader.cpp
-             src/main/cpp/downloader.h
-              )
-
-
-add_library( # Sets the name of the library.
-             getrequest
-             SHARED
-             src/main/cpp/getrequest.cpp
-             src/main/cpp/getrequest.h
-              )
-
-add_library( # Sets the name of the library.
-             lecteur
-             SHARED
              src/main/cpp/lecteur.cpp
-             src/main/cpp/lecteur.h
+             src/main/cpp/gestionnaire.cpp
               )
 
-target_include_directories(downloader PRIVATE
-                           ${distribution_DIR}/curl/include)
 
-target_include_directories(getrequest PRIVATE
-                           ${distribution_DIR}/curl/include)
-
-target_include_directories(lecteur PRIVATE
-                          ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/include)
-
+target_include_directories(gestionnaire PRIVATE
+                           ${distribution_DIR}/curl/include
+                           ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/include)
 
 find_library( # Sets the name of the path variable.
               log-lib
@@ -77,21 +56,7 @@ find_library( # Sets the name of the path variable.
               log )
 
 target_link_libraries( # Specifies the target library.
-                       downloader
-                       lib-curl
-                       z
-                       ${log-lib}
-                       )
-
-target_link_libraries( # Specifies the target library.
-                       getrequest
-                       lib-curl
-                       z
-                       ${log-lib}
-                       )
-
-target_link_libraries( # Specifies the target library.
-                       lecteur
+                       gestionnaire
                        ffmpeg-codec
                        ffmpeg-device
                        ffmpeg-filter
@@ -100,6 +65,7 @@ target_link_libraries( # Specifies the target library.
                        ffmpeg-postproc
                        ffmpeg-sample
                        ffmpeg-scale
+                       lib-curl
                        z
                        ${log-lib}
                        )

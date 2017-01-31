@@ -12,10 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
     static {
-        //System.loadLibrary("native-lib");
-        System.loadLibrary("downloader");
-        System.loadLibrary("getrequest");
-        System.loadLibrary("lecteur");
+        System.loadLibrary("gestionnaire");
     }
 
     @Override
@@ -28,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(stringFromJNI2());
 
         TextView tv_ip = (TextView) findViewById(R.id.ip_text);
-        tv_ip.setText(getString());
+        tv_ip.setText(getString2());
 
         Button button = (Button) findViewById(R.id.bouton);
         button.setText(stringFromJNI3());
@@ -44,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public native String stringFromJNI2();
     public native String stringFromJNI3();
     public native String getString();
+    public native String getString2();
 
     public void refresh(){
 
