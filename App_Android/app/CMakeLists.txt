@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.4.1)
 
+#set(CMAKE_C_COMPILER "/usr/bin/gcc")
+#set(CMAKE_CXX_COMPILER "/usr/bin/g++")
+
 set(distribution_DIR ${CMAKE_SOURCE_DIR}/../distribution)
 
 add_library(lib-curl STATIC IMPORTED)
@@ -30,6 +33,8 @@ add_library(ffmpeg-scale STATIC IMPORTED)
 set_target_properties(ffmpeg-scale PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libswscale.a)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+set(CMAKE_SHARED_LINKER_FLAGS "-Wall -v -Wl,--no-warn-shared-textrel")
+
 
 
 add_library( # Sets the name of the library.

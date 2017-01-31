@@ -10,7 +10,7 @@ using namespace std;
 
 lecteur::lecteur()
 {
-
+    
 }
 
 lecteur::~lecteur()
@@ -26,6 +26,7 @@ Java_com_example_local_app_1android_MainActivity_getString(JNIEnv *env, jobject)
     std::string info = "Hello !";
     return env->NewStringUTF(info.c_str());
 }
+
 extern "C"
 {
 #include <libavcodec/avcodec.h>

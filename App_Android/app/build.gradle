@@ -12,7 +12,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags ""
+                cppFlags
             }
         }
         ndk {
@@ -27,6 +27,7 @@ android {
     }
     externalNativeBuild {
         cmake {
+
             path "CMakeLists.txt"
         }
     }

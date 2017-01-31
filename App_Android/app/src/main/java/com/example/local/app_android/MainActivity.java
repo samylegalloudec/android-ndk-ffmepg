@@ -46,5 +46,4 @@ public class MainActivity extends AppCompatActivity {
     public void refresh(){
 
     }
-    //public native String retourRequete();
 }
