@@ -1,6 +1,18 @@
-Pour compiler :
+# android-ndk-ffmpeg
 
-Executer le projet avec Android Studio
+Project using ffmpeg (and curl)
+
+## Getting Started
+
+Follow these instructions to run the project
+
+### Prerequisites
+
+Android NDK
+
+#### Installing :
+
+Just run the project into Android Studio
 
 
 
