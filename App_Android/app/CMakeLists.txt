@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.4.1)
 
-
-
 set(distribution_DIR ${CMAKE_SOURCE_DIR}/../distribution)
-
 
 add_library(lib-curl STATIC IMPORTED)
 set_target_properties(lib-curl PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/curl/lib/${ANDROID_ABI}/libcurl.a)
@@ -31,8 +28,6 @@ set_target_properties(ffmpeg-sample PROPERTIES IMPORTED_LOCATION ${distribution_
 
 add_library(ffmpeg-scale STATIC IMPORTED)
 set_target_properties(ffmpeg-scale PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libswscale.a)
-
-
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
