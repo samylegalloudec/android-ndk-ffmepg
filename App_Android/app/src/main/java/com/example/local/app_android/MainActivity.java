@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
     static {
+        //Appelle les librairies SHARED
         System.loadLibrary("gestionnaire");
     }
 
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Crée un text view, prend les paramètres du textview qui a pour id sample_text dans activity_main.xml
         TextView tv = (TextView) findViewById(R.id.sample_text);
-        //System.out.println(stringFromJNI());
         tv.setText(stringFromJNI2());
 
         TextView tv_ip = (TextView) findViewById(R.id.ip_text);

@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.4.1)
 
-#set(CMAKE_C_COMPILER "/usr/bin/gcc")
+#set(CMAKE_C_COMPILER "/usr/bin/gcc") #change le compilateur clang en gcc
 #set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 
-set(distribution_DIR ${CMAKE_SOURCE_DIR}/../distribution)
+set(distribution_DIR ${CMAKE_SOURCE_DIR}/../distribution) #indique ou se trouve les librairies
 
-add_library(lib-curl STATIC IMPORTED)
-set_target_properties(lib-curl PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/curl/lib/${ANDROID_ABI}/libcurl.a)
+add_library(lib-curl STATIC IMPORTED) #importe la librairie lib-curl en statique (sans paramètres)
+set_target_properties(lib-curl PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/curl/lib/${ANDROID_ABI}/libcurl.a) #Je mets les paramètres de l'importation
 
 add_library(ffmpeg-codec STATIC IMPORTED)
 set_target_properties(ffmpeg-codec PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libavcodec.a)
@@ -33,11 +33,11 @@ add_library(ffmpeg-scale STATIC IMPORTED)
 set_target_properties(ffmpeg-scale PROPERTIES IMPORTED_LOCATION ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/lib/libswscale.a)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
-set(CMAKE_SHARED_LINKER_FLAGS "-Wall -v -Wl,--no-warn-shared-textrel")
+set(CMAKE_SHARED_LINKER_FLAGS "-Wall -v -Wl,--no-warn-shared-textrel") #Evite les problèmes de linker dus à la déprécation
 
 
 
-add_library( # Sets the name of the library.
+add_library( # Sets the name of the library. #Je crée la librairie gestionnaire qui contient mes classes
              gestionnaire
              SHARED
              src/main/cpp/downloader.cpp
@@ -46,6 +46,7 @@ add_library( # Sets the name of the library.
               )
 
 
+#Je définis ou se trouve le dossier des include pour que ma lib gestionnaire les trouve
 target_include_directories(gestionnaire PRIVATE
                            ${distribution_DIR}/curl/include
                            ${distribution_DIR}/ffmpeg/${ANDROID_ABI}/include)
@@ -55,6 +56,7 @@ find_library( # Sets the name of the path variable.
 
               log )
 
+#link toutes mes librairies à ma lib gestionnaire
 target_link_libraries( # Specifies the target library.
                        gestionnaire
                        ffmpeg-codec
