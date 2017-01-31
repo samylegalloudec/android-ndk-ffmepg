@@ -52,13 +52,13 @@ git pull https://github.com/WritingMinds/ffmpeg-android.git
 
 cd ffmpeg-android
 
-Set environment variable :
+* Set environment variable :
 
 ```
 export ANDROID_NDK={ndk_bundle}
 ```
 
-install libs :
+* Install libs :
 
 ```
 sudo apt-get --quiet --yes install build-essential git autoconf libtool pkg-config gperf gettext yasm python-lxml
@@ -72,14 +72,22 @@ Put : libpng-1.6.28
 
 same in libpng_build.sh
 
+```
 vim libpng_build.sh
+```
 
 line 5 : pushd libpng-1.6.28
 
-then ./init_update_libs.sh
+* Update libs
+```
+./init_update_libs.sh
+```
 
-and ./android_build.sh (takes almost 30-40 min)
+* Run the script
 
+```
+./android_build.sh (takes almost 30-40 min)
+```
 
 
 Then go in ffmpeg-android/build and copy the folders armeabi-v7a/ and x86/ into
