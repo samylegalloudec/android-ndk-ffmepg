@@ -1,12 +1,10 @@
 package com.example.local.app_android;
 
-import android.net.Uri;
-import android.provider.MediaStore;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Button;
-import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
     public native String stringFromJNI2();
     public native String stringFromJNI3();
     public native String getString();
+    //public native String getInt();
     public native String getString2();
 
     public void refresh(){
+
 
     }
 }

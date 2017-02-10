@@ -36,11 +36,6 @@
         android:layout_centerHorizontal="true"
         android:text="Refresh" />
 
-    <VideoView
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="26dp"
-        android:id="@+id/videoView"
-        android:layout_below="@+id/bouton"
-        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>

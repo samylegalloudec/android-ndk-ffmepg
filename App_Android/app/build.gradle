@@ -10,13 +10,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
-            cmake {
-                cppFlags
-            }
-        }
         ndk {
             abiFilters 'x86', 'armeabi-v7a'
+        }
+        externalNativeBuild {
+            cmake {
+                arguments '-DANDROID_PLATFORM=android-11',
+                        '-DANDROID_TOOLCHAIN=clang',
+                        '-DANDROID_NATIVE_API_LEVEL=11'
+
+            }
         }
     }
     buildTypes {
@@ -27,9 +30,9 @@ android {
     }
     externalNativeBuild {
         cmake {
-
             path "CMakeLists.txt"
         }
+
     }
 }
 

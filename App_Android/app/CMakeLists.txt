@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.4.1)
 #set(CMAKE_C_COMPILER "/usr/bin/gcc") #change le compilateur clang en gcc
 #set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 
+set (APP_PLATFORM -DAPP_PLATFORM=android-11)
+
 set(distribution_DIR ${CMAKE_SOURCE_DIR}/../distribution) #indique ou se trouve les librairies
 
 add_library(lib-curl STATIC IMPORTED) #importe la librairie lib-curl en statique (sans paramètres)

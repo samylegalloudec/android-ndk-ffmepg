@@ -18,10 +18,11 @@ public:
     static int check_sample_fmt(AVCodec *codec, enum AVSampleFormat sample_fmt);
     static int select_sample_rate(AVCodec *codec);
     static void audio_decode_example(const char *outfilename, const char *filename);
-    static void video_encode_example(const char *filename, int codec_id);
+    static void video_encode_example(const char *filename, AVCodecID codec_id);
     static void pgm_save(unsigned char *buf, int wrap, int xsize, int ysize, char *filename);
     static int decode_write_frame(const char *outfilename, AVCodecContext *avctx, AVFrame *frame, int *frame_count, AVPacket *pkt, int last);
     static void video_decode_example(const char *outfilename, const char *filename);
+    void test();
 
 private:
     AVCodec *codec;
